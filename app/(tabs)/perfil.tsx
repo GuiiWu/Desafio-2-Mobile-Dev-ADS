@@ -14,7 +14,16 @@ export default function Perfil() {
   // Desloga, limpa o histórico de navegação e vai para o index.
   const handleSair = useSair();
 
-  const perfil = user ? user : 'sem informação disponivel';
+  // Correção (Desafio 2): antes era `user ? user : 'sem informação disponivel'`,
+  // e o TypeScript reclamava porque uma string não tem displayName/email/photoURL.
+  // Como esses campos só aparecem quando está logado, usamos o próprio user
+  // e mostramos o texto padrão campo a campo.
+  const semInfo = "sem informação disponível";
+  const perfil = {
+    displayName: user?.displayName ?? semInfo,
+    email: user?.email ?? semInfo,
+    photoURL: user?.photoURL ?? undefined,
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -36,9 +45,10 @@ export default function Perfil() {
             />
 
             <Text style={styles.titulo}>Aqui vai o mapa</Text>
-            <Link href="/perfil" asChild>
+            {/* Desafio 2 (passo 4): o Link agora abre a tela de lista dos reportes */}
+            <Link href="/lista-de-reportes" asChild>
               <Pressable>
-                <Text style={styles.link}>Perfil do usuário</Text>
+                <Text style={styles.link}>Ver reportes</Text>
               </Pressable>
             </Link>
 

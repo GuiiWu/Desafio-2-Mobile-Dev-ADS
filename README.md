@@ -109,5 +109,6 @@ firebase-config.ts   # Inicialização do Firebase
 ## Documentação adicional
 
 - [Desafio 1 — Gravar um reporte no Firebase](docs/desafio-1-gravar-reporte.md)
+- [Desafio 2 — Listar os reportes do Firebase](docs/desafio-2-listar-reportes.md)
 - [Atualização para o Expo SDK 57](docs/atualizacao-expo-sdk-57.md)
 - [Documentação do Expo](https://docs.expo.dev/)

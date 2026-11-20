@@ -1,4 +1,5 @@
 import { STATUS } from "@/constants/status";
+import { ROTULOS_DOS_TIPOS } from "@/constants/tipos";
 import { Coordenadas } from "@/context/cidade-context";
 import { Ocorrencia } from "@/types/ocorrencia";
 import { StyleProp, ViewStyle } from "react-native";
@@ -34,7 +35,12 @@ export function MapaView({ coordenadas, ocorrencias = [], style }: Props) {
           key={o.id}
           coordinate={{ latitude: o.latitude, longitude: o.longitude }}
           title={o.titulo}
-          description={STATUS[o.status].rotulo}
+          // Desafio 2 (melhoria): o balão do pino mostra também o tipo do problema.
+          description={
+            o.tipo
+              ? `${ROTULOS_DOS_TIPOS[o.tipo].rotulo} · ${STATUS[o.status].rotulo}`
+              : STATUS[o.status].rotulo
+          }
           pinColor={STATUS[o.status].cor}
         />
       ))}

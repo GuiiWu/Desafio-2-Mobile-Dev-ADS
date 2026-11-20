@@ -34,6 +34,11 @@ export default function RootLayout() {
             name="novo-reporte"
             options={{ title: "", headerBackTitle: "", headerShadowVisible: false }}
           />
+          {/* Desafio 2: tela com a lista dos reportes (aberta pelo Perfil) */}
+          <Stack.Screen
+            name="lista-de-reportes"
+            options={{ title: "", headerBackTitle: "", headerShadowVisible: false }}
+          />
         </Stack>
       </ThemeProvider>
       </CidadeProvider>
